@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>报告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: rgb(184, 124, 124);
+            width: 75%;
+            margin:0 auto;
+        }
+
+        .title {
+            margin:10px 0px;
+            /* border: 1px solid black; */
+        }
+
+        .title span:nth-child(1) {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color:rgb(135, 48, 48);
+            color:rgba(240, 248, 255, 0.943);
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            font-size: 29px;
+        }
+
+        .title span:nth-child(2) {
+            margin-left:5px;
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            font-size: 30px;
+        }
+
+        .box .text span {
+            color: rgb(103, 31, 31);
+            /* color:rgba(240, 248, 255, 0.943); */
+
+
+            font-size: 30px;
+        }
+        .box .text p {
+            font-size: 25px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: rgb(183, 63, 63);
+            padding:10px;
+            margin:0 auto;
+        }
+        table p {
+            padding:20px;
+            font-size: 25px;
+        }
+
+        .container {
+            width: 15px;
+            height: 600px;
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgb(153, 84, 84);
+            border-radius: 0 10px 10px 0;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .container:hover {
+            width: 130px;
+            border-radius: 0 30px 30px 0;
+        }
+
+        .container:hover li a {
+            color: #fff;
+        }
+
+        .container::before {
+            content: "";
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: rgb(135, 48, 48);
+        }
+
+        .container .top {
+            width: calc(100% - 30px);
+            margin-left: 30px;
+            height: 20%;
+            background-color: rgb(153, 84, 84);
+            border-radius: 0 0 0 20px;
+            transition: 0.2s;
+        }
+
+        .container .middle {
+            width: calc(100% - 60px);
+            height: 10%;
+            background-color: rgb(135, 48, 48);
+            margin-left: 40px;
+            border-radius: 20px;
+        }
+
+        .container .bottom {
+            width: calc(100% - 30px);
+            height: 100%;
+            margin-left: 30px;
+            background-color: rgb(153, 84, 84);
+
+            border-radius: 20px 0 0 0;
+        }
+
+        .container li {
+            position: absolute;
+            top: var(--change);
+            width: 100%;
+            height: 10%;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container li a {
+            color: transparent;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .container li:nth-child(1):hover~.top {
+            height: 20%;
+        }
+
+        .container li:nth-child(2):hover~.top {
+            height: 30%;
+        }
+
+        .container li:nth-child(3):hover~.top {
+            height: 40%;
+        }
+
+        .container li:nth-child(4):hover~.top {
+            height: 50%;
+        }
+
+        .container li:nth-child(5):hover~.top {
+            height: 60%;
+        }
+
+        .container li:nth-child(6):hover~.top {
+            height: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="middle">
+        <div class="box" id="author">
+            <div class="title" ><span>1</span><span>作者</span></div>
+            <div class="text">
+                <p><span>姓名：</span>王敏若<br />
+                    <span>学号：</span>0223593<br />
+                    <span>班级：</span>软件工程2211班
+                </p>
+            </div>
+        </div>
+        <div class="box" id="introduce">
+            <div class="title" ><span>2</span><span>介绍</span></div>
+            <div class="text">
+                <p><span>名称：</span>中国文化<br />
+                    <span>主题：</span>云游敦煌<br />
+                    <span>选题目的：</span>谈及壁画，我们大多是想到敦煌莫高窟，的确，敦煌壁画不但是值得一看再看的艺术珍品，更是值得现代人去体会的生活美学。希望这个网站能够展现敦煌壁画的魅力。<br/>
+                    <span>内容板块：</span>网站一共分成7个板块，分别是：瑞兽，探索，敦煌介绍，壁画欣赏，保护，登录。<br />
+                    <span>页面组织结构：</span>大部分页面分成三个部分：页头（导航栏部分），页中（主要内容区），页脚。<br />
+                </p>
+            </div>
+        </div>
+        
+        <div class="box" id="show">
+            <div class="title"><span>3</span><span>展示</span></div>
+            <div class="text">
+                <p><span>主要技术：html+css+js</span></p>
+                <p><span>效果展示</span></p>
+                <table border="1" align="center">
+                    <tr>
+                        <th>效果展示</th>
+                        <th>说明</th>
+                    </tr>
+                    <tr>
+                        <td><video src="video_11.mp4" poster="导航栏.jpg" controls="controls" width="235px"
+                                height="180px"></video></td>
+                        <td><p>hover导航栏使用了定位与flex布局，鼠标移入导航栏时有颜色变换的效果</p></td>
+                    </tr>
+                    <tr>
+                        <td><video src="video_12.mp4" poster="壁画主题.jpg" controls="controls" width="235px"
+                                height="180px"></video></td>
+                        <td><p>壁画主题部分采用了flex布局，当鼠标移入图片时，图片会有放大效果，文字也会出现，当鼠标移出时，文字会消失</p></td>
+                    </tr>
+                    <tr>
+                        <td><video src="video_13.mp4" poster="百叶窗.jpg" controls="controls" width="235px"
+                                height="180px"></video></td>
+                        <td><p>这部分采用了float布局和定位，可称之为百叶窗</p></td>
+                    </tr>
+                    <tr>
+                        <td><video src="video_14.mp4" poster="壁画欣赏.jpg" controls="controls" width="235px"
+                                height="180px"></video></td>
+                        <td><p>这部分采用了flex布局和定位，可称之为轮播图</p></td>
+                    </tr>
+                    <tr>
+                        <td><video src="video_15.mp4" poster="侧边栏.jpg" controls="controls" width="235px"
+                                height="180px"></video></td>
+                        <td><p>侧边栏部分采用了flex布局</p></td>
+                    </tr>
+                    <tr>
+                        <td><video src="video_16.mp4" poster="视频.jpg" controls="controls" width="235px"
+                                height="180px"></video></td>
+                        <td><p>这部分插入了视频</p></td>
+                    </tr>
+                    <tr>
+                        <td><video src="video_17.mp4" poster="颜色.jpg" controls="controls" width="235px"
+                                height="180px"></video></td>
+                        <td><p>点击卡片会有放大效果，内容会显示全面，再次点击时变回原样</p></td>
+                    </tr>
+                    <tr>
+                        <td><video src="video_18.mp4" poster="保护页面.jpg" controls="controls" width="235px"
+                                height="180px"></video></td>
+                        <td><p>这部分采用了flex布局和定位，鼠标移入卡片时会有图片放大效果，同时显示文字</p></td>
+                    </tr>
+                    <tr>
+                        <td><video src="video_19.mp4" poster="登录.jpg" controls="controls" width="235px"
+                                height="180px"></video></td>
+                        <td><p>这部分运用了一点js，实现了卡片交互效果</p></td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+        <div class="box" id="other">
+            <div class="title"><span>4</span><span>其他</span></div>
+            <div class="text">
+                <p>
+                    <span>1.配色和布局 </span>为了使网站看起来美观舒服整齐，一直在尝试配色和布局，奈何一直达不到想要的效果，多次调试后，最终采用了这个方案。<br/>
+                    <span>2.效果实现 </span>探索页面的颜色展示部分，卡片展示效果是我认为比较难的部分，花了很长时间才达到这个效果，但是仔细看还是存在一些问题，导航栏部分也是有相同卡顿效果。<br/>
+                    <span>3.其他 </span>虽然说壁画主题部分，百叶窗，还有轮播图，看起来只是用到了hover效果实现，但是要达到这个效果我实在是花了许多时间调试，或许是我技术问题，不过通过网上资料查找后不断改代码，总算还是看得过去了。
+                </p>
+            </div>
+        </div>
+        <div class="box" id="summary">
+            <div class="title"><span>5</span><span>总结</span></div>
+            <div class="text">
+                <p><span>总结与展望：</span>大作业终于接近尾声了，通过此次网页制作，我发现这极大地锻炼了自己的能力，虽然说过程比较艰辛，也存在许多不足与缺陷，比如技术不够熟悉，基础不够扎实。希望在以后，这些问题能够一个个突破，技术上得到提升。<br/>
+                    <span>祝</span>老师新年快乐!!!同时谢谢老师的指导。
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <li style="--change:20%;">
+            <a href="#author">作者</a>
+        </li>
+        <li style="--change:30%;">
+            <a href="#introduce">介绍</a>
+        </li>
+        <li style="--change:40%;">
+            <a href="#show">展示</a>
+        </li>
+        <li style="--change:50%;">
+            <a href="#other">其他</a>
+        </li>
+        <li style="--change:60%;">
+            <a href="#summary">总结</a>
+        </li>
+        <li style="--change:70%;">
+            <a href="index.html">首页</a>
+        </li>
+        <div class="top"></div>
+        <div class="middle"></div>
+        <div class="bottom"></div>
+    </div>
+
+</body>
+
+</html>

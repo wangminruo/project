@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑞兽</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(184, 124, 124);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        img {
+            vertical-align: top;
+            border: 0;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        html {
+            user-select: none;
+            scroll-behavior: smooth;
+        }
+
+
+        li {
+            list-style: none;
+        }
+
+        .top img {
+            width: 100vw;
+            height: 300px;
+        }
+
+        nav {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100vw;
+            height: 64px;
+
+        }
+
+        nav>ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(10vw);
+            width: 80vw;
+            height: 100%;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.495);
+            box-shadow: 20px 25px 20px -15px rgba(0, 0, 0, 0.3);
+        }
+
+        nav>ul>li {
+            position: relative;
+            width: 20%;
+            height: 60%;
+            margin: 5px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: 0.5s;
+        }
+
+        nav ul li a {
+            height: 100%;
+            width: 100%;
+            line-height: calc(64px*0.6);
+            font-size: 18px;
+            color: rgb(135, 48, 48);
+        }
+
+        nav ul li>a::after {
+            content: '';
+            background: #c95447;
+            display: block;
+            width: 100%;
+            height: calc(64px*0.72);
+            max-width: 160px;
+            border-radius: 15px;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0;
+            transition: .5s;
+        }
+
+        nav ul li:hover>a {
+            color: #fff;
+        }
+
+        nav ul li:hover>a::after {
+            top: 50%;
+            opacity: 1;
+        }
+
+
+        .top nav ul>li ul {
+            position: absolute;
+            top: calc(64px*0.8);
+            left: -5px;
+            width: 16vw;
+            height: calc(64px*2);
+            background: rgba(255, 255, 255, 0.495);
+            box-shadow: 20px 25px 20px -15px rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 15px 15px;
+            z-index: 10;
+            transform: scaleY(0);
+            transform-origin: top center;
+            transition: all 0.6s;
+        }
+
+        .top nav ul>li ul li {
+            position: relative;
+            display: block;
+            height: 64px;
+            width: calc(100%-10px);
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top nav ul>li ul li a {
+            display: block;
+            width: 100%;
+            height: 60%;
+            line-height: calc(64px*0.6);
+            text-align: center;
+        }
+
+        .top nav ul>li:hover ul {
+            display: block;
+            transform: scaleY(1);
+        }
+
+        .top {
+            position:relative;
+        }
+        
+        .top p {
+            position:absolute;
+            top:100px;
+            left:50%;
+            text-align: center;
+            margin-left:-165px;
+            font-size: 30px;
+            color:rgba(255, 245, 240, 0.586);
+        }
+        .banner {
+            width: 70%;
+           margin:0 auto;
+
+        }
+        .section {
+            display:flex;
+            background-color: rgba(158, 95, 95, 0.818);
+            margin:20px;
+            border-radius: 10px;
+        }
+        .section img {
+            margin:5px;
+            border-radius: 10px;
+           border:5px dashed rgb(135, 48, 48);
+
+        }
+        .artical {
+           padding:40px 50px;
+           margin:0 auto;
+        }
+       .artical h3 {
+        text-align: center;
+        color:rgb(135, 48, 48);
+       }
+       .artical p {
+        color:whitesmoke;
+       }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <img src="瑞兽.jpg" alt="">
+        <nav>
+            <ul>
+                <li><a href="瑞兽.html">瑞兽</a></li>
+                <li><a href="探索.html">探索</a></li>
+                <li><a href="index.html">首页</a>
+                    <ul>
+                        <li><a href="index.html">敦煌简介</a></li>
+                        <li><a href="壁画欣赏.html">壁画欣赏</a></li>
+                    </ul>
+                </li>
+                <li><a href="保护.html">保护</a></li>
+                <li><a href="登录.html">登录</a></li>
+            </ul>
+        </nav>
+        <p>万物有灵<br/>来自敦煌瑞兽的千年守护</p>
+    </div>
+
+    <div class="banner">
+        <div class="section">
+            <img class="img" src="瑞兽5.jpg" alt="" width="200px" height="200px">
+            <div class="artical">
+                <h3>大鱼 有余</h3>
+                <p>在波浪起伏的大海里，浮现出两尾大鱼，其造型是以鲤鱼和鲫鱼为基础神化的，是敦煌壁画中形体最大、描写最为细腻的鱼。大鱼表示海中有无量珍宝，同时，在传统文化中，鱼谐音“余”，有年年有余的祥瑞之意。</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="artical">
+                <h3>九色鹿 延年</h3>
+                <p>九色鹿是敦煌壁画中最广为人知的形象之一：被九色鹿救起的溺水人为了贪图富贵，反而带领国王去捕猎九色鹿，但国王最终被九色鹿的正气所打动。同时，中国古代传说中又有千年玄鹿之说，象征长寿</p>
+            </div>
+            <img class="img" src="瑞兽6.jpg" alt="" width="200px" height="200px">
+        </div>
+        <div class="section">
+            <img class="img" src="瑞兽1.jpg" alt="" width="200px" height="200px">
+            <div class="artical">
+                <h3>青鸟 良缘</h3>
+                <p>传说青鸟是为西王母衔食、传信的神鸟，常被视为传递佳音的使者。壁画中的青鸟昂首挺胸，鼓翅举尾，与朱雀、玄武等中国古代神话中的瑞禽神兽共舞一画。在李商隐的诗中，青鸟化身传情之鸟一“蓬山此去无多路，青鸟殷勤为探看”。</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="artical">
+                <h3>神龙 掌控</h3>
+                <p>龙是中国传统的祥瑞象征，拥有驾云驭风、统领万兽的威严。
+                    一般画龙都取动势很强的腾飞之态，如此静态的坐龙十分罕见。
+                    同时，“龙”亦指二十八宿中的东方苍龙七宿星象，每到仲春卯月之初，
+                    “龙角星”从东方地平线上出现，
+                    故称“龙抬头”，有祈求平安、丰收的风俗文化。</p>
+            </div>
+            <img class="img" src="瑞兽2.jpg" alt="" width="200px" height="200px">
+        </div>
+        <div class="section">
+            <img class="img" src="瑞兽3.jpg" alt="" width="200px" height="200px">
+            <div class="artical">
+                <h3>小白鼠 聚财</h3>
+                <p>壁画中，一只小白鼠在廊柱下奔跑，看似是画家随意所加，大概也是敦煌壁画中独一无二的老鼠形象。线描虽比较粗疏，但形象却栩栩如生。民间常把鼠视为财富的象征，也有可吞吐财富的“吐宝鼠”形象。</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="artical">
+                <h3>卷鼻白象 祥乐</h3>
+                <p>白象是普贤菩萨的坐骑，代表愿行殷深，辛勤不倦。同时，象有大威力，性情柔顺，康健祥乐。该壁画中的象鼻绕了两个圆圈，颇有想象力和幽默感，极具特色。象是传统的瑞兽形象之一，常有“太平有象”、“喜象升平”之说。</p>
+            </div>
+            <img class="img" src="瑞兽4.jpg" alt="" width="200px" height="200px">
+        </div>
+        
+    </div>
+</body>
+</html>
