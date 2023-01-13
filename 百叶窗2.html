@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百叶窗</title>
+    <style>
+        body {
+            background-color: rgb(81, 79, 79);
+        }
+        li {
+            list-style: none;
+        }
+        .box {
+            width: 800px;
+            height: 320px;
+            margin:0 auto;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+        .box li {
+            float:left;
+            position:relative;
+            width: 200px;
+            height: 320px;
+            transition: all 0.5s;
+        }
+        .box li .text {
+            position: absolute;
+            left:0;
+            bottom:0px;
+            font-size:16px;
+            color:aliceblue;
+            width: 100%;
+            height:30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: rgba(0,0,0,0.3);
+        }
+        .box:hover li {
+            width: 64px;
+        }
+        .box li:hover {
+            width: 640px;
+        } 
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li>
+            <img src="大般涅盘经卷第一寿命品第一.jpg" alt="">
+            <div class="text">大般涅盘经卷</div>
+        </li>
+        <li>
+            <img src="大乘无量寿宗要经.jpg" alt="">
+            <div class="text">大乘无量寿宗要经</div>
+        </li>
+       
+        <li>
+            <img src="妙法莲华经卷第二譬喻品第三.jpg" alt="">
+            <div class="text">妙法莲华经卷</div>
+        </li>
+       
+    </ul>
+</body>
+</html>

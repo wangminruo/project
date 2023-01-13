@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>隐藏式侧边栏菜单</title>
+    <style>
+        * {
+            /* 初始化 */
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #333;
+        }
+
+        .container {
+            width: 15px;
+            height: 600px;
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #222;
+            /* 右上右下圆角 */
+            border-radius: 0 15px 15px 0;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .container:hover {
+            width: 130px;
+            border-radius: 0 30px 30px 0;
+        }
+
+        .container:hover li a {
+            color: #fff;
+        }
+
+        .container::before {
+            content: "";
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: lightseagreen;
+        }
+
+        .container .top {
+            width: calc(100% - 30px);
+            margin-left: 30px;
+            height: 20%;
+            background-color: #222;
+            border-radius: 0 0 0 20px;
+            transition: 0.2s;
+        }
+
+        .container .middle {
+            width: calc(100% - 60px);
+            height: 10%;
+            background-color: lightseagreen;
+            margin-left: 40px;
+            border-radius: 20px;
+        }
+
+        .container .bottom {
+            width: calc(100% - 30px);
+            height: 100%;
+            margin-left: 30px;
+            background-color: #222;
+            border-radius: 20px 0 0 0;
+        }
+
+        .container li {
+            position: absolute;
+            top: var(--change);
+            width: 100%;
+            height: 10%;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container li a {
+            color: transparent;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .container li:nth-child(1):hover~.top {
+            height: 20%;
+        }
+
+        .container li:nth-child(2):hover~.top {
+            height: 30%;
+        }
+
+        .container li:nth-child(3):hover~.top {
+            height: 40%;
+        }
+
+        .container li:nth-child(4):hover~.top {
+            height: 50%;
+        }
+
+        .container li:nth-child(5):hover~.top {
+            height: 60%;
+        }
+
+        .container li:nth-child(6):hover~.top {
+            height: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <li style="--change:20%;">
+            <a href="瑞兽.html">瑞兽</a>
+        </li>
+        <li style="--change:30%;">
+            <a href="探索.html">探索</a>
+        </li>
+        <li style="--change:40%;">
+            <a href="首页.html">简介</a>
+        </li>
+        <li style="--change:50%;">
+            <a href="壁画欣赏.html">壁画</a>
+        </li>
+        <li style="--change:60%;">
+            <a href="保护.html">保护</a>
+        </li>
+        <li style="--change:70%;">
+            <a href="登录.html">登录</a>
+        </li>
+        <div class="top"></div>
+        <div class="middle"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+
+</html>

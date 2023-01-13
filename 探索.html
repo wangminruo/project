@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(184, 124, 124);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        img {
+            vertical-align: top;
+            border: 0;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        html {
+            user-select: none;
+            scroll-behavior: smooth;
+        }
+
+
+        li {
+            list-style: none;
+        }
+
+        .top img {
+            width: 100vw;
+            height: 300px;
+        }
+
+        nav {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100vw;
+            height: 64px;
+
+        }
+
+        nav>ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(10vw);
+            width: 80vw;
+            height: 100%;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.495);
+            box-shadow: 20px 25px 20px -15px rgba(0, 0, 0, 0.3);
+        }
+
+        nav>ul>li {
+            position: relative;
+            width: 20%;
+            height: 60%;
+            margin: 5px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: 0.5s;
+        }
+
+        nav ul li a {
+            height: 100%;
+            width: 100%;
+            line-height: calc(64px*0.6);
+            font-size: 18px;
+            color: rgb(135, 48, 48);
+        }
+
+        nav ul li>a::after {
+            content: '';
+            background: #c95447;
+            display: block;
+            width: 100%;
+            height: calc(64px*0.72);
+            max-width: 160px;
+            border-radius: 15px;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0;
+            transition: .5s;
+        }
+
+        nav ul li:hover>a {
+            color: #fff;
+        }
+
+        nav ul li:hover>a::after {
+            top: 50%;
+            opacity: 1;
+        }
+
+
+        .top nav ul>li ul {
+            position: absolute;
+            top: calc(64px*0.8);
+            left: -5px;
+            width: 16vw;
+            height: calc(64px*2);
+            background: rgba(255, 255, 255, 0.495);
+            box-shadow: 20px 25px 20px -15px rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 15px 15px;
+            z-index: 10;
+            transform: scaleY(0);
+            transform-origin: top center;
+            transition: all 0.6s;
+        }
+
+        .top nav ul>li ul li {
+            position: relative;
+            display: block;
+            height: 64px;
+            width: calc(100%-10px);
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top nav ul>li ul li a {
+            display: block;
+            width: 100%;
+            height: 60%;
+            line-height: calc(64px*0.6);
+            text-align: center;
+        }
+
+        .top nav ul>li:hover ul {
+            display: block;
+            transform: scaleY(1);
+        }
+
+
+
+
+
+
+        
+
+        .article-title {
+            font-size: 25px;
+            text-align: center;
+            letter-spacing: 0.025em;
+            transition: font-size 0.45s ease-in-out, color 0.3s ease-out;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: all 0.45s ease-in-out;
+        }
+
+
+
+        .title-wrap {
+            transform: translateY(0);
+            transition: transform 0.45s ease-in;
+        }
+
+        .drop-cap {
+            font-size: 55px;
+            line-height: 28px;
+        }
+
+        .wrapper {
+            margin-bottom: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book__cover-exerpt {
+            color: #6a6a6a;
+            padding: 10px;
+            text-align: center;
+            opacity: 1;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .book__cover {
+            height: 100%;
+            width: 100%;
+            margin-right: 10px;
+        }
+
+        .book__content {
+            text-align: justify;
+            word-wrap: break-word;
+            font-size: 1.1em;
+            opacity: 0;
+            transition: all 1.5s ease-in-out;
+            max-width: 750px;
+            margin: 0 auto 6rem;
+            padding: 0 2rem;
+        }
+
+        .book__content p {
+            line-height: 1.8;
+            color: #3a3a3a;
+
+            margin-bottom: 2.5rem;
+        }
+
+        .book {
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            height: 300px;
+            width: 200px;
+            box-shadow: 0 20px 30px -10px #ccc;
+            transition: all 0.5s ease-in-out;
+            margin: 5px;
+        }
+
+        .book:hover {
+            box-shadow: 0 6px 50px 10px #cfcfcf;
+        }
+
+        .book--expanded {
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+        }
+
+        .book--expanded .overlay {
+            opacity: 0.95;
+        }
+
+        .book--expanded .article-title {
+            color: white;
+            font-size: 64px;
+        }
+
+        .book--expanded .title-wrap {
+            transform: translateY(-300px);
+            color: white;
+        }
+
+        .book--expanded .book__cover-exerpt {
+            opacity: 0;
+        }
+
+        .book--expanded .book__cover {
+            height: 460px;
+            margin-bottom: 6rem;
+        }
+
+        .book--expanded .book__content {
+            opacity: 1;
+        }
+
+        .book--expanded .header-image {
+            height: 100%;
+        }
+
+        table {
+            border: rgb(183, 63, 63);
+            border-collapse: collapse;
+            text-align: center;
+            margin: 0 auto;
+            width: 80%;
+            font-size: 20px;
+
+        }
+
+        table video {
+
+            margin: 0 auto;
+        }
+
+        .title span {
+            display: inline-block;
+            margin: 20px 0px;
+        }
+
+        .title span:nth-child(1) {
+            width: 5px;
+            height: 33px;
+            /* background-color: #fff; */
+            background: #892f25;
+
+            border-radius: 2px;
+            margin: 0 auto;
+        }
+
+        .title span:nth-child(2) {
+            font-size: 40px;
+        }
+
+        .section {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .box {
+            display: inline-block;
+            margin-bottom: 15px;
+            width: 165px;
+            text-align: center;
+
+        }
+
+        .box .box-img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <img src="探索.jpg" alt="">
+        <nav>
+            <ul>
+                <li><a href="瑞兽.html">瑞兽</a></li>
+                <li><a href="探索.html">探索</a></li>
+                <li><a href="index.html">首页</a>
+                    <ul>
+                        <li><a href="index.html">敦煌简介</a></li>
+                        <li><a href="壁画欣赏.html">壁画欣赏</a></li>
+                    </ul>
+                </li>
+                <li><a href="保护.html">保护</a></li>
+                <li><a href="登录.html">登录</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="middle">
+        <div class="title"><span></span><span>从「视频」开始探索</span></div>
+        <table border="1">
+            <tr>
+                <th>名字</th>
+                <th>介绍</th>
+                <th>视频</th>
+            </tr>
+            <tr>
+                <td>《敦煌岁时节令》</td>
+                <td><br>晨昏千载<br>岁月悠长<br>在这里<br>感悟节气之美</p>
+                </td>
+                <td><video src="video_01.mp4" poster="敦煌岁时节令.jpg" controls="controls" width="235px"
+                        height="180px"></video></td>
+            </tr>
+            <tr>
+                <td>《和光敦煌》</td>
+                <td><br>风吹沙粒鸣<br>又见繁华景<br>掠影随光现<br>和光动人心</p>
+                </td>
+                <td><video src="video_02.mp4" poster="和光敦煌.jpg" controls="controls" width="235px" height="180px"></video>
+                </td>
+            </tr>
+            <tr>
+                <td>《云讲国宝》</td>
+                <td><br>穿越回晚唐<br>感受千年前<br>风情民俗<br>艺术礼乐</p>
+                </td>
+                <td><video src="video_04.mp4" poster="云讲国宝.jpg" controls="controls" width="235px" height="180px"></video>
+                </td>
+            </tr>
+            <tr>
+                <td>《一事一生，一人一窟》</td>
+                <td><br>择一事<br>终一生<br>不为繁华易匠心</p>
+                </td>
+                <td><video src="video_03.mp4" poster="一事一生，一人一窟 .jpg" controls="controls" width="235px"
+                        height="180px"></video></td>
+            </tr>
+        </table>
+        <div class="title"><span></span><span>从「颜色」开始探索</span></div>
+        <div class="wrapper">
+            <div class="book">
+                <div class="book__cover">
+                    <div class="header-image">
+                        <img src="青金石.jpg" alt="" width="100%" height="100%">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="title-wrap">
+                        <h1 class="article-title">青金石</h1>
+                    </div>
+                    <p class="book__cover-exerpt">
+
+                        青金石被誉为阿富汗的国石，通过“丝绸之路”从阿富汗传入中国，由方纳石，兰芳石和黄铁矿等几种不同矿物组成。在西方文艺复兴时期，青金石的价格和黄金一样昂贵，加工制成群青后甚至更贵，像米开朗琪罗，丢勒这样的大艺术家也只能等待赞助人购买供他们使用。由于其“色相如天”，故又称“帝青色”。清代四品官的朝服顶戴为青金所制。在中国，青金石制成的颜料常用在敦煌壁画中。
+
+                    </p>
+
+                </div>
+                <div class="book__content">
+                    <p><span
+                            class="drop-cap">青</span>青金石被誉为阿富汗的国石，通过“丝绸之路”从阿富汗传入中国，由方纳石，兰芳石和黄铁矿等几种不同矿物组成。在西方文艺复兴时期，青金石的价格和黄金一样昂贵，加工制成群青后甚至更贵，像米开朗琪罗，丢勒这样的大艺术家也只能等待赞助人购买供他们使用。由于其“色相如天”，故又称“帝青色”。清代四品官的朝服顶戴为青金所制。在中国，青金石制成的颜料常用在敦煌壁画中。
+                    </p>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book__cover">
+                    <div class="header-image">
+                        <img src="硅孔雀石.jpg" alt="" width="100%" height="100%">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="title-wrap">
+                        <h1 class="article-title">硅孔雀石</h1>
+                    </div>
+                    <p class="book__cover-exerpt">
+
+                        硅孔雀石又名风凰石，是水合铜硅酸盐矿物。在很多铜矿地区都会存在这种由铜矿分解的矿物，这是因为它是铜矿遇到二氧化硅的水发生化学变化而产生的。人们常利用硅孔雀石中的绿色来做手饰，也叫绿松石。中国是世界上最早开发利用绿松石的国家之一，特别是在西藏，内蒙古，青海等地的工艺品上多有镶嵌。绿松石研磨成颜料使用则较为奢侈，色湘呈淡绿色，色泽淡雅，画人物服饰清秀泼雅，别具特色。
+                    </p>
+
+                </div>
+                <div class="book__content">
+                    <p><span
+                            class="drop-cap">硅</span>硅孔雀石又名风凰石，是水合铜硅酸盐矿物。在很多铜矿地区都会存在这种由铜矿分解的矿物，这是因为它是铜矿遇到二氧化硅的水发生化学变化而产生的。人们常利用硅孔雀石中的绿色来做手饰，也叫绿松石。中国是世界上最早开发利用绿松石的国家之一，特别是在西藏，内蒙古，青海等地的工艺品上多有镶嵌。绿松石研磨成颜料使用则较为奢侈，色湘呈淡绿色，色泽淡雅，画人物服饰清秀泼雅，别具特色。
+                    </p>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book__cover">
+                    <div class="header-image">
+                        <img src="赭石.jpg" alt="" width="100%" height="100%">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="title-wrap">
+                        <h1 class="article-title">赭石</h1>
+                    </div>
+                    <p class="book__cover-exerpt">
+
+                        赭石由赤铁矿，多呈块状，致密状，柱状等集合体产出。赭石是世界上最早用于装饰合绘画的颜料之一，也是世界上遍布最广泛的颜料。颜色种类很多，从浅棕色，血红色，棕红色到黑棕色。我国河北，山西，北京，广东均有矿产，古时赭石以代州出产的为最佳，代州是现在山西省五台县，代县，繁峙县一带，所以赭石又叫“代赭”。
+
+                    </p>
+
+                </div>
+                <div class="book__content">
+                    <p><span
+                            class="drop-cap">赭</span>赭石由赤铁矿，多呈块状，致密状，柱状等集合体产出。赭石是世界上最早用于装饰合绘画的颜料之一，也是世界上遍布最广泛的颜料。颜色种类很多，从浅棕色，血红色，棕红色到黑棕色。我国河北，山西，北京，广东均有矿产，古时赭石以代州出产的为最佳，代州是现在山西省五台县，代县，繁峙县一带，所以赭石又叫“代赭”。
+                    </p>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="book__cover">
+                    <div class="header-image">
+                        <img src="朱砂.jpg" alt="" width="100%" height="100%">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="title-wrap">
+                        <h1 class="article-title">朱砂</h1>
+                    </div>
+                    <p class="book__cover-exerpt">
+                        朱砂是人类历史上最早使用的矿石之一，我国是用朱砂有悠久的历史，新石器时代的先民用朱砂做颜料涂画饰物和陶器，殷商时期的“涂朱甲骨”就是把朱砂磨成粉涂嵌在甲骨文的刻痕中以示醒目。后世用朱砂墨书写批文，称“朱批”。秦以前称朱砂为辰砂或者丹砂。朱砂具有药理效用，古代炼丹家将其作为炼丹的主要原料，丹砂在古代被认为是具有神奇效用的长生不死之药。
+                    </p>
+
+                </div>
+                <div class="book__content">
+                    <p><span class="drop-cap">朱</span>
+                        朱砂是人类历史上最早使用的矿石之一，我国是用朱砂有悠久的历史，新石器时代的先民用朱砂做颜料涂画饰物和陶器，殷商时期的“涂朱甲骨”就是把朱砂磨成粉涂嵌在甲骨文的刻痕中以示醒目。后世用朱砂墨书写批文，称“朱批”。秦以前称朱砂为辰砂或者丹砂。朱砂具有药理效用，古代炼丹家将其作为炼丹的主要原料，丹砂在古代被认为是具有神奇效用的长生不死之药。
+                    </p>
+                </div>
+            </div>
+            <div class="book">
+                <div class="book__cover">
+                    <div class="header-image">
+                        <img src="密陀僧.jpg" alt="" width="100%" height="100%">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="title-wrap">
+                        <h1 class="article-title">密陀僧</h1>
+                    </div>
+                    <p class="book__cover-exerpt">
+                        铅的氧化物矿物，呈黄色。大约东汉时从波斯传入，按波斯语的音译为“密陀僧”。汉代以来我国就广泛使用密陀僧作为黄色颜料，由铅粉调荏油而成。密陀僧又叫铅黄，早期被用于陶瓷工艺的金丹术。由于颜料中含有铅，化学性质不稳定，置空气中则缓慢吸收二氧化碳，变成碱式碳酸铅，所以密陀僧也是一种极易变色的颜料，在敦煌壁画中，几乎所有的密陀僧都发生了颜色的变化，目前还没有找到未变色的铅黄颜料。作为中药，密陀僧有消肿杀虫，收敛防腐，坠痰镇惊的功效。
+                    </p>
+
+                </div>
+                <div class="book__content">
+                    <p><span class="drop-cap">铅</span>
+                        铅的氧化物矿物，呈黄色。大约东汉时从波斯传入，按波斯语的音译为“密陀僧”。汉代以来我国就广泛使用密陀僧作为黄色颜料，由铅粉调荏油而成。密陀僧又叫铅黄，早期被用于陶瓷工艺的金丹术。由于颜料中含有铅，化学性质不稳定，置空气中则缓慢吸收二氧化碳，变成碱式碳酸铅，所以密陀僧也是一种极易变色的颜料，在敦煌壁画中，几乎所有的密陀僧都发生了颜色的变化，目前还没有找到未变色的铅黄颜料。作为中药，密陀僧有消肿杀虫，收敛防腐，坠痰镇惊的功效。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script>
+            "use strict";
+
+            $('.book').on('click', function () {
+                $(this).toggleClass('book--expanded');
+            });
+
+        </script>
+        <div class="section">
+            <div class="box">
+                <img class="box-img" src="颜色5.jpg" alt="">
+                <div class="box-text">香妃</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色6.jpg" alt="">
+                <div class="box-text">瓦崗红</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色7.jpg" alt="">
+                <div class="box-text">小豆茶</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色8.jpg" alt="">
+                <div class="box-text">元岩肌</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色9.jpg" alt="">
+                <div class="box-text">赤茶</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色10.jpg" alt="">
+                <div class="box-text">雌黄</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色11.jpg" alt="">
+                <div class="box-text">咖啡色</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色12.jpg" alt="">
+                <div class="box-text">松绿</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色13.jpg" alt="">
+                <div class="box-text">空青</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色14.jpg" alt="">
+                <div class="box-text">利久</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色15.jpg" alt="">
+                <div class="box-text">玛瑙末</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色16.jpg" alt="">
+                <div class="box-text">黑曜石</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色18.jpg" alt="">
+                <div class="box-text">岩焦茶</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色19.jpg" alt="">
+                <div class="box-text">钴蓝</div>
+            </div>
+            <div class="box">
+                <img class="box-img" src="颜色20.jpg" alt="">
+                <div class="box-text">红珊瑚</div>
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

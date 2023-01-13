@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>45-FullCard</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body {
+            background: #c36565;
+            /* font-family: 'Roboto Condensed', sans-serif; */
+            overflow: hidden;
+        }
+
+        /* .mr2 {
+            margin-right: 1rem;
+        }
+
+        .ml2 {
+            margin-left: 1rem;
+        } */
+
+        .article-title {
+            font-size: 25px;
+            /* line-height: 1; */
+            /* font-family: 'Roboto Condensed', sans-serif; */
+            text-align: center;
+            letter-spacing: 0.025em;
+            transition: font-size 0.45s ease-in-out, color 0.3s ease-out;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 150px;
+            /* background-image: url(青金石.jpg); */
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: all 0.45s ease-in-out;
+        }
+
+        /* .overlay {
+            transition: all 0.3s ease-in-out;
+            background: ;
+            opacity: 0;
+           position: absolute; 
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        } */
+
+        .title-wrap {
+            transform: translateY(0);
+            transition: transform 0.45s ease-in;
+        }
+
+        .drop-cap {
+            font-size: 55px;
+            line-height: 28px;
+        }
+
+        .wrapper {
+            
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book__cover-exerpt {
+            color: #6a6a6a;
+            padding: 10px;
+            /* line-height: 1.6; */
+            text-align: center;
+            opacity: 1;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .book__cover {
+            height: 100%;
+            width: 100%;
+            margin-right:10px;
+        }
+
+        .book__content {
+            text-align: justify;
+            word-wrap: break-word;
+            font-size: 1.1em;
+            opacity: 0;
+            transition: all 1.5s ease-in-out;
+            max-width: 750px;
+            margin: 0 auto 6rem;
+            padding: 0 2rem;
+        }
+
+        .book__content p {
+            line-height: 1.8;
+            color: #3a3a3a;
+            margin-bottom: 2.5rem;
+        }
+
+        .book {
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            height: 300px;
+            width: 200px;
+            box-shadow: 0 20px 30px -10px #ccc;
+            transition: all 0.5s ease-in-out;
+            margin:5px;
+        }
+
+        .book:hover {
+            box-shadow: 0 6px 50px 10px #cfcfcf;
+        }
+
+        .book--expanded {
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+        }
+
+        .book--expanded .overlay {
+            opacity: 0.95;
+        }
+
+        .book--expanded .article-title {
+            color: white;
+            font-size: 64px;
+            /* letter-spacing: 0.05em; */
+        }
+
+        .book--expanded .title-wrap {
+            transform: translateY(-300px);
+            color: white;
+        }
+
+        .book--expanded .book__cover-exerpt {
+            opacity: 0;
+        }
+
+        .book--expanded .book__cover {
+            height: 460px;
+            margin-bottom: 6rem;
+        }
+
+        .book--expanded .book__content {
+            opacity: 1;
+        }
+
+        .book--expanded .header-image {
+            height: 100%;
+        }
+
+        /* span{
+   margin-left: -35px;
+}
+span .fa {
+   font-size: 17px;
+   margin-left: 20px;
+} */
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="book">
+            <div class="book__cover">
+                <div class="header-image">
+                    <img src="青金石.jpg" alt="" width="100%" height="100%">
+                    <div class="overlay"></div>
+                </div>
+                <div class="title-wrap">
+                    <h1 class="article-title">青金石</h1>
+                </div>
+                <p class="book__cover-exerpt">
+
+                    青金石被誉为阿富汗的国石，通过“丝绸之路”从阿富汗传入中国，由方纳石，兰芳石和黄铁矿等几种不同矿物组成。在西方文艺复兴时期，青金石的价格和黄金一样昂贵，加工制成群青后甚至更贵，像米开朗琪罗，丢勒这样的大艺术家也只能等待赞助人购买供他们使用。由于其“色相如天”，故又称“帝青色”。清代四品官的朝服顶戴为青金所制。在中国，青金石制成的颜料常用在敦煌壁画，也常用于佛教画中佛祖头饰，也叫佛青
+                    
+                </p>
+
+            </div>
+            <div class="book__content">
+                <p><span class="drop-cap">青</span>青金石被誉为阿富汗的国石，通过“丝绸之路”从阿富汗传入中国，由方纳石，兰芳石和黄铁矿等几种不同矿物组成。在西方文艺复兴时期，青金石的价格和黄金一样昂贵，加工制成群青后甚至更贵，像米开朗琪罗，丢勒这样的大艺术家也只能等待赞助人购买供他们使用。由于其“色相如天”，故又称“帝青色”。清代四品官的朝服顶戴为青金所制。在中国，青金石制成的颜料常用在敦煌壁画，也常用于佛教画中佛祖头饰，也叫佛青</p>
+            </div>
+        </div>
+
+        <div class="book">
+            <div class="book__cover">
+                <div class="header-image">
+                    <img src="硅孔雀石.jpg" alt="" width="100%" height="100%">
+                    <div class="overlay"></div>
+                </div>
+                <div class="title-wrap">
+                    <h1 class="article-title">硅孔雀石</h1>
+                </div>
+                <p class="book__cover-exerpt">
+
+                    硅孔雀石又名风凰石，是水合铜硅酸盐矿物。在很多铜矿地区都会存在这种由铜矿分解的矿物，这是因为它是铜矿遇到二氧化硅的水发生化学变化而产生的。人们常利用硅孔雀石中的绿色来做手饰，也叫绿松石。中国是世界上最早开发利用绿松石的国家之一，特别是在西藏，内蒙古，青海等地的工艺品上多有镶嵌。绿松石研磨成颜料使用则较为奢侈，色湘呈淡绿色，色泽淡雅，画人物服饰清秀泼雅，别具特色。
+                </p>
+
+            </div>
+            <div class="book__content">
+                <p><span class="drop-cap">硅</span>硅孔雀石又名风凰石，是水合铜硅酸盐矿物。在很多铜矿地区都会存在这种由铜矿分解的矿物，这是因为它是铜矿遇到二氧化硅的水发生化学变化而产生的。人们常利用硅孔雀石中的绿色来做手饰，也叫绿松石。中国是世界上最早开发利用绿松石的国家之一，特别是在西藏，内蒙古，青海等地的工艺品上多有镶嵌。绿松石研磨成颜料使用则较为奢侈，色湘呈淡绿色，色泽淡雅，画人物服饰清秀泼雅，别具特色。</p>
+            </div>
+        </div>
+
+        <div class="book">
+            <div class="book__cover">
+                <div class="header-image">
+                    <img src="赭石.jpg" alt="" width="100%" height="100%">
+                    <div class="overlay"></div>
+                </div>
+                <div class="title-wrap">
+                    <h1 class="article-title">赭石</h1>
+                </div>
+                <p class="book__cover-exerpt">
+
+                    赭石由赤铁矿，多呈块状，致密状，柱状等集合体产出。赭石是世界上最早用于装饰合绘画的颜料之一，也是世界上遍布最广泛的颜料。颜色种类很多，从浅棕色，血红色，棕红色到黑棕色。我国河北，山西，北京，广东均有矿产，古时赭石以代州出产的为最佳，代州是现在山西省五台县，代县，繁峙县一带，所以赭石又叫“代赭”，日本绘画界依然沿用这个名称。
+                    
+                </p>
+
+            </div>
+            <div class="book__content">
+                <p><span class="drop-cap">赭</span>赭石由赤铁矿，多呈块状，致密状，柱状等集合体产出。赭石是世界上最早用于装饰合绘画的颜料之一，也是世界上遍布最广泛的颜料。颜色种类很多，从浅棕色，血红色，棕红色到黑棕色。我国河北，山西，北京，广东均有矿产，古时赭石以代州出产的为最佳，代州是现在山西省五台县，代县，繁峙县一带，所以赭石又叫“代赭”，日本绘画界依然沿用这个名称。</p>
+            </div>
+        </div>
+
+        <div class="book">
+            <div class="book__cover">
+                <div class="header-image">
+                    <img src="朱砂.jpg" alt="" width="100%" height="100%">
+                    <div class="overlay"></div>
+                </div>
+                <div class="title-wrap">
+                    <h1 class="article-title">朱砂</h1>
+                </div>
+                <p class="book__cover-exerpt">
+                    朱砂是人类历史上最早使用的矿石之一，我国是用朱砂有悠久的历史，新石器时代的先民用朱砂做颜料涂画饰物和陶器，殷商时期的“涂朱甲骨”就是把朱砂磨成粉涂嵌在甲骨文的刻痕中以示醒目。后世皇帝用朱砂墨书写批文，称“朱批”。秦以前称朱砂为辰砂或者丹砂。朱砂具有药理效用，古代炼丹家将其作为炼丹的主要原料，丹砂在古代被认为是具有神奇效用的长生不死之药。
+                </p>
+
+            </div>
+            <div class="book__content">
+                <p><span class="drop-cap">朱</span>
+                    朱砂是人类历史上最早使用的矿石之一，我国是用朱砂有悠久的历史，新石器时代的先民用朱砂做颜料涂画饰物和陶器，殷商时期的“涂朱甲骨”就是把朱砂磨成粉涂嵌在甲骨文的刻痕中以示醒目。后世皇帝用朱砂墨书写批文，称“朱批”。秦以前称朱砂为辰砂或者丹砂。朱砂具有药理效用，古代炼丹家将其作为炼丹的主要原料，丹砂在古代被认为是具有神奇效用的长生不死之药。</p>
+            </div>
+        </div>
+        <div class="book">
+            <div class="book__cover">
+                <div class="header-image">
+                    <img src="密陀僧.jpg" alt="" width="100%" height="100%">
+                    <div class="overlay"></div>
+                </div>
+                <div class="title-wrap">
+                    <h1 class="article-title">密陀僧</h1>
+                </div>
+                <p class="book__cover-exerpt">
+                    铅的氧化物矿物，呈黄色。大约东汉时从波斯传入，按波斯语的音译为“密陀僧”。汉代以来我国就广泛使用密陀僧作为黄色颜料，由铅粉调荏油而成。密陀僧又叫铅黄，早期被用于陶瓷工艺的金丹术。由于颜料中含有铅，化学性质不稳定，置空气中则缓慢吸收二氧化碳，变成碱式碳酸铅，所以密陀僧也是一种极易变色的颜料，在敦煌壁画中，几乎所有的密陀僧都发生了颜色的变化，目前还没有找到未变色的铅黄颜料。作为中药，密陀僧有消肿杀虫，收敛防腐，坠痰镇惊的功效。
+                </p>
+
+            </div>
+            <div class="book__content">
+                <p><span class="drop-cap">铅</span>
+                    铅的氧化物矿物，呈黄色。大约东汉时从波斯传入，按波斯语的音译为“密陀僧”。汉代以来我国就广泛使用密陀僧作为黄色颜料，由铅粉调荏油而成。密陀僧又叫铅黄，早期被用于陶瓷工艺的金丹术。由于颜料中含有铅，化学性质不稳定，置空气中则缓慢吸收二氧化碳，变成碱式碳酸铅，所以密陀僧也是一种极易变色的颜料，在敦煌壁画中，几乎所有的密陀僧都发生了颜色的变化，目前还没有找到未变色的铅黄颜料。作为中药，密陀僧有消肿杀虫，收敛防腐，坠痰镇惊的功效。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        "use strict";
+
+        $('.book').on('click', function () {
+            $(this).toggleClass('book--expanded');
+        });
+
+    </script>
+</body>
+
+</html>
